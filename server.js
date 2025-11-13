@@ -48,9 +48,9 @@ io.on("connection", (socket) => {
     };
     
     console.log("💬 Message from", userDetail?.name || "Anonymous", ":", msg);
-    
+  
     // Broadcast to all connected clients (including sender)
-    io.emit("chat_message", messageData);
+    socket.broadcast.emit("chat_message", messageData);
   });
 
   // Disconnect event
